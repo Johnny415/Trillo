@@ -197,11 +197,20 @@
 
 .overview {
   display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--color-grey-light-2);
+
   &_heading {
+    font-size: 2.25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1.5rem 3rem;
   }
 
   &_stars {
     margin-right: auto;
+    display: flex;
   }
 
   &_icon-star,
@@ -212,14 +221,144 @@
   }
 
   &_location {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 3rem;
+  }
+  &_icon-location {
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
   }
 
   &_rating {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 0 2rem;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   &_rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;
   }
 
   &_rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+}
+
+////////////////////////////////////
+//BUTTON INLINE
+
+.btn-inline {
+  border: none;
+  color: var(--color-primary);
+  font-size: inherit;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.753);
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+///////////////////////////////////
+//PARAGRAPH
+
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+///////////////////////////////////
+//LIST
+
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid var(--color-grey-light-2);
+  border-bottom: 1px solid var(--color-grey-light-2);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &_item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+  }
+
+  &_item::before {
+    content: "";
+    // background-image: url(../img/chevron-thin-right.svg);
+    // background-size: cover;
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.7rem;
+
+    background-color: var(--color-primary);
+    -webkit-mask-image: url(../img/chevron-thin-right.svg);
+    -webkit-mask-size: cover;
+  }
+}
+
+/////////////////////////////////////
+//RECOMMEND
+
+.recommend {
+  font-size: 1.2rem;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  &_photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid var(--color-white);
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
+  }
+  &_count {
+    margin-right: auto;
+  }
+
+  &_friends {
   }
 }
