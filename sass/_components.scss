@@ -235,9 +235,63 @@
 
 .gallery {
   display: flex;
+
+  &_item {
+    position: relative;
+    background-color: #000;
+    overflow: hidden;
+  }
+
+  &_item:after {
+    content: "";
+    display: block;
+    background-color: inherit;
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(2) translateX(-75%) translateY(-75%) translateZ(0)
+      rotate(-28deg);
+    transition: transform 2s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  &_item:hover:after {
+    transform: scale(2) translateX(0) translateY(0) translateZ(0) rotate(-28deg);
+  }
+
+  &_div {
+    overflow: hidden;
+  }
+
   &_photo {
     width: 100%;
     display: block;
+    transition: all 0.3s 0.3s;
+  }
+
+  &_item:hover &_photo {
+    filter: sepia(40%);
+  }
+
+  &_text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    color: white;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.8s 0.2s;
+    z-index: 10;
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    font-weight: 600;
+  }
+
+  &_item:hover &_text {
+    opacity: 1;
   }
 }
 
