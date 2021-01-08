@@ -265,11 +265,11 @@
   &_photo {
     width: 100%;
     display: block;
-    transition: all 0.3s 0.3s;
+    transition: all 0.8s 0.4s;
   }
 
   &_item:hover &_photo {
-    filter: sepia(40%);
+    filter: sepia(80%);
   }
 
   &_text {
